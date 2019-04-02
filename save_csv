@@ -1,0 +1,11 @@
+# cmd - pip install Krx / pip install pykrx (sorry, I can't remember accurate name. But, One of the two will be accurate.)
+
+from pykrx import Krx 
+
+krx = Krx()
+krx.get_tickers() # load stock code
+stock = krx.get_market_ohlcv("20150615","20150632","024850") #start-day, end-day, stock-code. 
+# In end-day, we can use 32.(in real, there is no 32 in june) In this case, It will save 20150615 - 20150630 price and volume data.
+stock.to_csv("D:/coding/12.csv") # setting directory.
+
+# you must use "" or str(). just using INT-type cause error.
